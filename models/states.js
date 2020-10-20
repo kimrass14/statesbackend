@@ -1,4 +1,6 @@
-const {Schema, model} = require("mongoose")
+const mongoose = require('../db/connection')
+
+const Schema = mongoose.Schema
 
 const stateSchema = new Schema(
     {
@@ -11,3 +13,5 @@ const stateSchema = new Schema(
 )
 
 const State = mongoose.model('State', stateSchema)
+
+module.exports = State

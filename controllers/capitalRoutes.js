@@ -1,9 +1,20 @@
 const express = require('express')
 const router = express.Router()
 
-// const mongoose = require('../db/connection')
+const mongoose = require('../db/connection')
 
-const Capital = require("../models/states")
+const Capital = require("../models/capitals")
+
+//seed route
+router.get("/seed", (req, res) => {
+  const Capitals = [
+    { city: "Lansing", 
+    population: 118427}
+  ];
+  Capital.create(Capitals, (err, data) => {
+    res.json(data);
+  });
+});
 
 //index route
 router.get("/", async (req, res) => {

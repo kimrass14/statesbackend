@@ -3,9 +3,23 @@ const router = express.Router()
 
 const State = require("../models/states")
 
+
+//seed route
+router.get("/seed", (req, res) => {
+  const States = [
+    { state: "Michigan", 
+    img: "https://images.all-free-download.com/images/graphiclarge/state_of_michigan_clip_art_18617.jpg"}
+   
+  ];
+  State.create(States, (err, data) => {
+    res.json(data);
+  });
+});
+
+
 //index route
 router.get("/", async (req, res) => {
-    res.json(await State.find({}))
+    res.json(await State.find({}).populate(''))
 })
 
 //create route
