@@ -18,16 +18,6 @@ router.get("/seed", async (req, res) => {
     res.json({newState});
   });
 
-    // router.get("/seed", (req, res) => {
-    //   const States = [
-    //     { state: "Michigan", 
-    //     img: "https://images.all-free-download.com/images/graphiclarge/state_of_michigan_clip_art_18617.jpg"}
-    
-    //   ];
-    //   State.create(States, (err, data) => {
-    //     res.json(data);
-    //   });
-    // });
 
 //get a capital document into a state document
 //MI Id: 5f8f5c0edd1cc40017d4fafc
@@ -55,7 +45,7 @@ router.put("/:id", async (req, res) => {
 });
 
 //update - add capital to state
-router.put("/:stateId/addCapital/:capitalId", async (req, res) => {
+router.put("/:stateId/addcapital/:capitalId", async (req, res) => {
     const capital = await Capital.findById(req.params.capitalId)
     const state = await State.findByIdAndUpdate
     (req.params.stateId,
