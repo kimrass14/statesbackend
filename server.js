@@ -1,5 +1,5 @@
 require('dotenv').config()
-// const { PORT = 3000, NODE_ENV = "development" } = process.env;
+// const { PORT = 4000, NODE_ENV = "development" } = process.env;
 const {PORT = 4000} = process.env
 
 const mongoose = require("./db/connection");
@@ -11,7 +11,6 @@ const express = require('express')
 const app = express()
 
 //OTHER IMPORTS
-const morgan = require("morgan");
 const stateRouter = require("./controllers/stateRoutes");
 const capitalRouter = require("./controllers/capitalRoutes");
 
@@ -20,7 +19,6 @@ const capitalRouter = require("./controllers/capitalRoutes");
 app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
-app.use(morgan("tiny"));
 
 //Route to test the server is working
 app.get("/", (req, res) => {
