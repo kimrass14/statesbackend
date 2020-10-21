@@ -8,12 +8,8 @@ const app = express()
 // const cors = require("cors");
 // const corsOptions = require("./configs/cors.js");
 
-//Bringing in Express
-// const express = require("express");
-// const app = express();
-
 //OTHER IMPORTS
-// const morgan = require("morgan");
+const morgan = require("morgan");
 const stateRouter = require("./controllers/stateRoutes");
 const capitalRouter = require("./controllers/capitalRoutes");
 
@@ -23,9 +19,9 @@ const capitalRouter = require("./controllers/capitalRoutes");
 // NODE_ENV === "production" ? app.use(cors(corsOptions)) : app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
-// app.use(morgan("tiny")); //logging
+app.use(morgan("tiny")); //logging
 
-//Route for testing server is working
+//Route to test the server is working
 app.get("/", (req, res) => {
   res.json({ hello: "Hello World!" });
 });
