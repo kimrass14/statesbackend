@@ -30,8 +30,8 @@ router.get("/seed", async (req, res) => {
     // });
 
 //get a capital document into a state document
-//MI Id: 5f8f5049081ecaa380103264
-//Lansing Id: 5f8f5357161453a4f7c61ab9
+//MI Id: 5f8f5c0edd1cc40017d4fafc
+//Lansing Id: 5f8fa81d3e90bf00177c5a4d
 router.get("/:stateId/addcapital/:capitalId", async (req, res) => {
     //takes string and turn into objectId
     req.params.capitalId = toId(req.params.capitalId)
